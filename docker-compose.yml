@@ -1,0 +1,27 @@
+services:
+  php:
+    container_name: ${COMPOSE_PROJECT_NAME}-php
+    build:
+      context: ./docker/php
+      args:
+        SYMFONY_CLI_ENABLED: ${PHP_SYMFONY_CLI_ENABLED:-false}
+        INSTALL_XDEBUG: ${PHP_INSTALL_XDEBUG:-false}
+    image: ${COMPOSE_PROJECT_NAME}-php
+    environment:
+      PHP_IDE_CONFIG: "serverName=${PHP_IDE_CONFIG_SERVER_NAME:-php}"
+    ports:
+      - "${PHP_SERVER_PORT:-8000}:8000"
+    volumes:
+      - type: bind
+        source: ./src
+        target: /app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    working_dir: /app
+    restart: always
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
