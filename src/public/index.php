@@ -1,9 +1,10 @@
 <?php
 
-use App\Kernel;
+declare(strict_types=1);
 
-require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
+require_once dirname(__DIR__) . '/bootstrap/bootstrap.php';
 
-return function (array $context) {
-    return new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG']);
-};
+return static fn (array $context) => new \App\Kernel(
+    environment: $context['APP_ENV'],
+    debug: (bool) $context['APP_DEBUG'],
+);
