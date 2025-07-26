@@ -4,8 +4,140 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0bc871c2d0f1479b63b941bc8453c41f",
+    "content-hash": "9845d17970f65ddee60dfc8aaad3191a",
     "packages": [
+        {
+            "name": "a3naumov/web-api-drive-bundle",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "./packages/bundle",
+                "reference": "86e5eda680bb2f1dda06d81bfd44ece4415e42d7"
+            },
+            "require": {
+                "a3naumov/web-api-drive-core": "^1.0",
+                "a3naumov/web-api-driver-local": "^1.0",
+                "php": "^8.3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "A3Naumov\\WebApiDriveBundle\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Naumov",
+                    "email": "naumovartem272@gmail.com"
+                }
+            ],
+            "description": "Web API Drive Bundle",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "a3naumov/web-api-drive-contract",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "./packages/contract",
+                "reference": "8cb3aa80b5bd90ffed120332938d261c8c142b68"
+            },
+            "require": {
+                "php": "^8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "A3Naumov\\WebApiDriveContract\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Naumov",
+                    "email": "naumovartem272@gmail.com"
+                }
+            ],
+            "description": "Web API Drive Contract",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "a3naumov/web-api-drive-core",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "./packages/core",
+                "reference": "6d2a2cbd124abe8dbb00b66b1f77a536b644f12f"
+            },
+            "require": {
+                "a3naumov/web-api-drive-contract": "^1.0",
+                "php": "^8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "A3Naumov\\WebApiDriveCore\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Naumov",
+                    "email": "naumovartem272@gmail.com"
+                }
+            ],
+            "description": "Web API Drive Core",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "a3naumov/web-api-driver-local",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "./packages/driver-local",
+                "reference": "c524193fdb899f4492162c52230872601f56b0bb"
+            },
+            "require": {
+                "a3naumov/web-api-drive-contract": "^1.0",
+                "php": "^8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "A3Naumov\\WebApiDriveDriverLocal\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Naumov",
+                    "email": "naumovartem272@gmail.com"
+                }
+            ],
+            "description": "Web API Drive Driver Local",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
         {
             "name": "doctrine/deprecations",
             "version": "1.1.5",

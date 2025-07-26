@@ -7,6 +7,7 @@
         "php": ">=8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "a3naumov/web-api-drive-bundle": "^1.0",
         "nelmio/api-doc-bundle": "^5.4",
         "phpdocumentor/reflection-docblock": "^5.6",
         "phpstan/phpdoc-parser": "^2.2",
@@ -68,7 +69,9 @@
             "@auto-scripts"
         ],
         "format": [
-            "php-cs-fixer fix src"
+            "php-cs-fixer fix src",
+            "php-cs-fixer fix packages",
+            "php-cs-fixer fix tests"
         ],
         "analyze": [
             "phpstan"
@@ -82,5 +85,14 @@
             "allow-contrib": false,
             "require": "7.3.*"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./packages/*",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
 }
