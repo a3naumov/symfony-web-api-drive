@@ -12,12 +12,14 @@
             "dist": {
                 "type": "path",
                 "url": "./packages/bundle",
-                "reference": "86e5eda680bb2f1dda06d81bfd44ece4415e42d7"
+                "reference": "03c377e775eaa508e2adfcdaca625fb3e2fce5bf"
             },
             "require": {
                 "a3naumov/web-api-drive-core": "^1.0",
                 "a3naumov/web-api-driver-local": "^1.0",
-                "php": "^8.3"
+                "php": "^8.3",
+                "symfony/http-kernel": "^7.0",
+                "symfony/routing": "^7.0"
             },
             "type": "symfony-bundle",
             "autoload": {

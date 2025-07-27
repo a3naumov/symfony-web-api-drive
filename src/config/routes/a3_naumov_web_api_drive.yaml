@@ -1,0 +1,2 @@
+a3_naumov_web_api_drive:
+    resource: '@A3NaumovWebApiDriveBundle/config/routes.yaml'
