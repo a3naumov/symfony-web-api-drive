@@ -6,4 +6,5 @@ namespace A3Naumov\WebApiDriveCore\Application\Contract\UseCase\Drive\Delete;
 
 interface CommandInterface
 {
+    public function getId(): string;
 }

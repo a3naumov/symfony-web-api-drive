@@ -7,6 +7,8 @@ use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Repository\DriveRepositoryI
 use App\Entity\Drive;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Uid\Exception\InvalidArgumentException;
+use Symfony\Component\Uid\Uuid;
 
 /**
  * @extends ServiceEntityRepository<Drive>
@@ -18,9 +20,34 @@ class DriveRepository extends ServiceEntityRepository implements DriveRepository
         parent::__construct($registry, Drive::class);
     }
 
-    public function save(DriveInterface $drive): void
+    public function findById(string $id): ?DriveInterface
+    {
+        try {
+            $uuid = Uuid::fromString($id);
+        } catch (InvalidArgumentException) {
+            return null;
+        }
+
+        return $this->find(id: $uuid);
+    }
+
+    public function save(DriveInterface $drive): DriveInterface
     {
         $this->getEntityManager()->persist($drive);
         $this->getEntityManager()->flush();
+
+        return $drive;
+    }
+
+    public function delete(DriveInterface $drive): void
+    {
+        $entityManager = $this->getEntityManager();
+
+        $managed = $this->find($drive->getId());
+
+        if ($managed) {
+            $entityManager->remove($managed);
+            $entityManager->flush();
+        }
     }
 }

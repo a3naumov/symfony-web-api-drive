@@ -6,7 +6,7 @@ namespace A3Naumov\WebApiDriveContract;
 
 interface DriveInterface
 {
-    public function getId(): ?\Stringable;
+    public function getId(): ?string;
 
     public function getName(): string;
 }

@@ -9,12 +9,12 @@ use A3Naumov\WebApiDriveContract\DriveInterface;
 class Drive implements DriveInterface
 {
     public function __construct(
-        private readonly ?\Stringable $id,
+        private readonly ?string $id,
         private string $name,
     ) {
     }
 
-    public function getId(): ?\Stringable
+    public function getId(): ?string
     {
         return $this->id;
     }

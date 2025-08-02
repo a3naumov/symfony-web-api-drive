@@ -8,7 +8,7 @@ interface DriveInterface
 {
     public function getId(): ?\Stringable;
 
-    public function getName(): ?string;
+    public function getName(): string;
 
     public function setName(string $name): static;
 }

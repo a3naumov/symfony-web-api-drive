@@ -27,7 +27,7 @@ class EntityMapper
     public function toDomain(InfrastructureDriveInterface $drive): DriveInterface
     {
         return new Drive(
-            id: $drive->getId(),
+            id: $drive->getId()?->__toString(),
             name: $drive->getName() ?? '',
         );
     }

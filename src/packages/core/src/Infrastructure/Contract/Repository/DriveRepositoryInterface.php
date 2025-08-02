@@ -8,5 +8,9 @@ use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\DriveInterface;
 
 interface DriveRepositoryInterface
 {
-    public function save(DriveInterface $drive): void;
+    public function findById(string $id): ?DriveInterface;
+
+    public function save(DriveInterface $drive): DriveInterface;
+
+    public function delete(DriveInterface $drive): void;
 }

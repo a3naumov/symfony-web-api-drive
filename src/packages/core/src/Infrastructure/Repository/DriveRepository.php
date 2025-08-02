@@ -17,12 +17,27 @@ class DriveRepository implements DomainDriveRepositoryInterface
     ) {
     }
 
+    public function findById(string $id): ?DriveInterface
+    {
+        $infrastructureDrive = $this->infrastructureRepository->findById($id);
+
+        return $infrastructureDrive
+            ? $this->mapper->toDomain($infrastructureDrive)
+            : null;
+    }
+
     public function save(DriveInterface $drive): DriveInterface
     {
-        $infrastructureDrive = $this->mapper->fromDomain($drive);
-
-        $this->infrastructureRepository->save($infrastructureDrive);
+        $infrastructureDrive = $this->infrastructureRepository->save(
+            drive: $this->mapper->fromDomain($drive),
+        );
 
         return $this->mapper->toDomain($infrastructureDrive);
+    }
+
+    public function delete(DriveInterface $drive): void
+    {
+        $infrastructureDrive = $this->mapper->fromDomain($drive);
+        $this->infrastructureRepository->delete($infrastructureDrive);
     }
 }

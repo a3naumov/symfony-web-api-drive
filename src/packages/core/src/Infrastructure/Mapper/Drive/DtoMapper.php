@@ -13,6 +13,7 @@ class DtoMapper
     public function fromDomain(DriveInterface $drive): DriveDtoInterface
     {
         return new DriveDto(
+            id: $drive->getId(),
             name: $drive->getName(),
         );
     }

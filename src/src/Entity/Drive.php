@@ -13,21 +13,24 @@ use Symfony\Component\Uid\Uuid;
 #[ORM\Entity(repositoryClass: DriveRepository::class)]
 class Drive implements DriveInterface
 {
-    #[ORM\Id]
-    #[ORM\Column(type: UuidType::NAME, unique: true)]
-    #[ORM\GeneratedValue(strategy: 'CUSTOM')]
-    #[ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')]
-    private ?Uuid $id = null;
+    public function __construct(
+        #[ORM\Id]
+        #[ORM\Column(type: UuidType::NAME, unique: true)]
+        #[ORM\GeneratedValue(strategy: 'CUSTOM')]
+        #[ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')]
+        private ?Uuid $id,
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
+        #[ORM\Column(length: 255)]
+        private string $name,
+    ) {
+    }
 
     public function getId(): ?\Stringable
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
