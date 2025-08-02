@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class HealthcheckController extends AbstractController
 {
-    #[Route(path: '/api/v1/healthcheck', name: 'api_healthcheck', methods: ['GET'])]
+    #[Route(path: '/api/v1/healthcheck', name: 'api_v1_healthcheck_index', methods: ['GET'], stateless: true)]
     #[OA\Response(
         response: 200,
         description: 'Returns the health status of the service.',

@@ -4,8 +4,73 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4da95641d810b0d718bdea0ca0bbb48a",
+    "content-hash": "fc96109e9d8de1474762c2a4800b8b7c",
     "packages": [
+        {
+            "name": "a3naumov/web-api-drive-contract",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "./packages/contract",
+                "reference": "8cb3aa80b5bd90ffed120332938d261c8c142b68"
+            },
+            "require": {
+                "php": "^8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "A3Naumov\\WebApiDriveContract\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Naumov",
+                    "email": "naumovartem272@gmail.com"
+                }
+            ],
+            "description": "Web API Drive Contract",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "a3naumov/web-api-drive-core",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "./packages/core",
+                "reference": "6d2a2cbd124abe8dbb00b66b1f77a536b644f12f"
+            },
+            "require": {
+                "a3naumov/web-api-drive-contract": "^1.0",
+                "php": "^8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "A3Naumov\\WebApiDriveCore\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Naumov",
+                    "email": "naumovartem272@gmail.com"
+                }
+            ],
+            "description": "Web API Drive Core",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
         {
             "name": "doctrine/collections",
             "version": "2.3.0",
