@@ -11,7 +11,6 @@ use App\Api\Resource\DriveResource;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Uid\Uuid;
 
 #[Route(path: '/api/v1/drives', name: 'api_v1_drive_', stateless: true)]
 class DriveController
@@ -21,13 +20,13 @@ class DriveController
         #[MapRequestPayload] CreateRequest $request,
         Create $createDrive,
     ): JsonResponse {
-        $createDrive->handle(
+        $drive = $createDrive->handle(
             name: $request->name,
         );
 
         return new JsonResponse(['drives' => [new DriveResource(
-            id: Uuid::v4(),
-            name: $request->name,
+            id: $drive->getId(),
+            name: $drive->getName(),
         )]], JsonResponse::HTTP_CREATED);
     }
 

@@ -7,7 +7,7 @@ namespace App\Api\Resource;
 class DriveResource implements \JsonSerializable
 {
     public function __construct(
-        public readonly \Stringable $id,
+        public readonly string $id,
         public readonly string $name,
     ) {
     }

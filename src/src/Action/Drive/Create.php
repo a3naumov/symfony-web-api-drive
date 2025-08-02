@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Action\Drive;
 
+use A3Naumov\WebApiDriveCore\Application\Contract\Dto\DriveDtoInterface;
 use A3Naumov\WebApiDriveCore\Application\Contract\UseCase\Drive\Create\HandlerInterface;
 use A3Naumov\WebApiDriveCore\Application\UseCase\Drive\Create\Command;
 
@@ -14,12 +15,12 @@ class Create
     ) {
     }
 
-    public function handle(string $name): void
+    public function handle(string $name): DriveDtoInterface
     {
         $command = new Command(
             name: $name,
         );
 
-        $this->createDriveUseCase->handle($command);
+        return $this->createDriveUseCase->handle($command);
     }
 }
