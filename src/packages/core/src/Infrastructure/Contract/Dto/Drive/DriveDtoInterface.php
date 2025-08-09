@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace A3Naumov\WebApiDriveCore\Infrastructure\Contract\Dto;
+namespace A3Naumov\WebApiDriveCore\Infrastructure\Contract\Dto\Drive;
 
 interface DriveDtoInterface
 {

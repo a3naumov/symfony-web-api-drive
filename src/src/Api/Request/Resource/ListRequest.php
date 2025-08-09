@@ -20,7 +20,7 @@ class ListRequest
         public readonly ?string $drive,
 
         #[Assert\NotBlank(allowNull: true)]
-        #[Assert\Ulid]
+        #[Assert\Uuid]
         #[Assert\When(
             expression: 'this.drive === null',
             constraints: [

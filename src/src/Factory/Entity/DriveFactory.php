@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Factory;
+namespace App\Factory\Entity;
 
-use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Dto\DriveDtoInterface;
+use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Dto\Drive\DriveDtoInterface;
 use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\DriveInterface;
-use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Factory\DriveFactoryInterface;
+use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Factory\Entity\DriveFactoryInterface;
 use App\Entity\Drive;
 use Symfony\Component\Uid\Uuid;
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace A3Naumov\WebApiDriveCore\Application\Dto;
+namespace A3Naumov\WebApiDriveCore\Application\Dto\Drive;
 
-use A3Naumov\WebApiDriveCore\Application\Contract\Dto\DriveDtoInterface;
+use A3Naumov\WebApiDriveCore\Application\Contract\Dto\Drive\DriveDtoInterface;
 
 class DriveDto implements DriveDtoInterface
 {

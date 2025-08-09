@@ -7,7 +7,7 @@ namespace A3Naumov\WebApiDriveCore\Infrastructure\Mapper\Drive;
 use A3Naumov\WebApiDriveContract\DriveInterface;
 use A3Naumov\WebApiDriveCore\Domain\Entity\Drive;
 use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\DriveInterface as InfrastructureDriveInterface;
-use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Factory\DriveFactoryInterface;
+use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Factory\Entity\DriveFactoryInterface;
 
 class EntityMapper
 {

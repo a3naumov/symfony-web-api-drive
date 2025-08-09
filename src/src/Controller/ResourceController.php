@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Action\Resource\Create;
+use App\Api\Request\Resource\CreateRequest;
 use App\Api\Request\Resource\ListRequest;
 use App\Api\Resource\ResourceResource;
+use App\Mapper\Resource\DtoMapper;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Attribute\MapQueryString;
+use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(path: '/api/v1/resources', name: 'api_v1_resource_', stateless: true)]
@@ -49,9 +53,16 @@ class ResourceController
     }
 
     #[Route(path: '', name: 'create', methods: ['POST'])]
-    public function create(): JsonResponse
-    {
-        return new JsonResponse();
+    public function create(
+        #[MapRequestPayload] CreateRequest $request,
+        Create $createResource,
+        DtoMapper $mapper,
+    ): JsonResponse {
+        $resourceDto = $createResource->handle($request);
+
+        return new JsonResponse([
+            'resources' => [$mapper->toApiResource($resourceDto)],
+        ]);
     }
 
     #[Route(path: '/{id}', name: 'delete', methods: ['DELETE'])]

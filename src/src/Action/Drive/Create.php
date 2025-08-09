@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Action\Drive;
 
-use A3Naumov\WebApiDriveCore\Application\Contract\Dto\DriveDtoInterface;
+use A3Naumov\WebApiDriveCore\Application\Contract\Dto\Drive\DriveDtoInterface;
 use A3Naumov\WebApiDriveCore\Application\Contract\UseCase\Drive\Create\HandlerInterface;
 use A3Naumov\WebApiDriveCore\Application\UseCase\Drive\Create\Command;
 

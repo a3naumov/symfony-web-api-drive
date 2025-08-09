@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\ResourceInterface;
 use App\Repository\ResourceRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Types\UuidType;
@@ -11,7 +12,7 @@ use Symfony\Component\Uid\Uuid;
 
 #[ORM\Entity(repositoryClass: ResourceRepository::class)]
 #[ORM\Table(name: 'resource')]
-class Resource
+class Resource implements ResourceInterface
 {
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]

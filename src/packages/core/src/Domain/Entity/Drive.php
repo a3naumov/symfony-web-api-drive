@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace A3Naumov\WebApiDriveCore\Domain\Entity;
 
 use A3Naumov\WebApiDriveContract\DriveInterface;
+use A3Naumov\WebApiDriveContract\ResourceInterface;
+use A3Naumov\WebApiDriveCore\Domain\Exception\Resource\ResourceNotFoundException;
 
 class Drive implements DriveInterface
 {
@@ -27,6 +29,15 @@ class Drive implements DriveInterface
     public function setName(string $name): static
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function addResource(ResourceInterface $resource): static
+    {
+        if (!$resource->getId()) {
+            throw new ResourceNotFoundException();
+        }
 
         return $this;
     }

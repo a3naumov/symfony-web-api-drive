@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace A3Naumov\WebApiDriveCore\Infrastructure\Mapper\Drive;
 
 use A3Naumov\WebApiDriveContract\DriveInterface;
-use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Dto\DriveDtoInterface;
-use A3Naumov\WebApiDriveCore\Infrastructure\Dto\DriveDto;
+use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Dto\Drive\DriveDtoInterface;
+use A3Naumov\WebApiDriveCore\Infrastructure\Dto\Drive\DriveDto;
 
 class DtoMapper
 {

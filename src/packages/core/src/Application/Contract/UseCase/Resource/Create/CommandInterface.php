@@ -2,17 +2,13 @@
 
 declare(strict_types=1);
 
-namespace A3Naumov\WebApiDriveContract;
+namespace A3Naumov\WebApiDriveCore\Application\Contract\UseCase\Resource\Create;
 
-interface ResourceInterface
+interface CommandInterface
 {
-    public function getId(): ?string;
-
     public function getDriveId(): string;
 
     public function getParentId(): ?string;
 
     public function getName(): string;
-
-    public function setName(string $name): static;
 }

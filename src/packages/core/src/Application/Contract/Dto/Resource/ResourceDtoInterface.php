@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace A3Naumov\WebApiDriveContract;
+namespace A3Naumov\WebApiDriveCore\Application\Contract\Dto\Resource;
 
-interface ResourceInterface
+interface ResourceDtoInterface
 {
     public function getId(): ?string;
 
@@ -13,6 +13,4 @@ interface ResourceInterface
     public function getParentId(): ?string;
 
     public function getName(): string;
-
-    public function setName(string $name): static;
 }
