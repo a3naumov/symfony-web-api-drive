@@ -8,21 +8,26 @@ use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Dto\Resource\ResourceDtoInt
 use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\ResourceInterface;
 use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Factory\Entity\ResourceFactoryInterface;
 use App\Entity\Resource;
-use Symfony\Component\Serializer\SerializerInterface;
+use App\Repository\DriveRepository;
+use App\Repository\ResourceRepository;
 
 class ResourceFactory implements ResourceFactoryInterface
 {
     public function __construct(
-        private readonly SerializerInterface $serializer,
+        private readonly DriveRepository $driveRepository,
+        private readonly ResourceRepository $resourceRepository,
     ) {
     }
 
     public function create(ResourceDtoInterface $resourceDto): ResourceInterface
     {
-        return $this->serializer->deserialize(
-            data: $this->serializer->serialize($resourceDto, 'json'),
-            type: Resource::class,
-            format: 'json',
-        );
+        $resource = $resourceDto->getId() ? $this->resourceRepository->findById($resourceDto->getId()) : null;
+        $resource ??= new Resource();
+
+        $resource->setDrive($this->driveRepository->find($resourceDto->getDriveId()));
+        $resource->setParent($resourceDto->getParentId() ? $this->resourceRepository->find($resourceDto->getParentId()) : null);
+        $resource->setName($resourceDto->getName());
+
+        return $resource;
     }
 }

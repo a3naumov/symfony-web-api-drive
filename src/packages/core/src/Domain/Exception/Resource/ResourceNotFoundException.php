@@ -8,5 +8,4 @@ use A3Naumov\WebApiDriveContract\Exception\Resource\ResourceNotFoundExceptionInt
 
 class ResourceNotFoundException extends \Exception implements ResourceNotFoundExceptionInterface
 {
-
 }

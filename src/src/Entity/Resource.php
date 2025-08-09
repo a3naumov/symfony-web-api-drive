@@ -32,7 +32,7 @@ class Resource implements ResourceInterface
 
     public function getId(): ?Uuid
     {
-        return $this->id;
+        return $this->id ?? null;
     }
 
     public function getDrive(): Drive
@@ -40,7 +40,14 @@ class Resource implements ResourceInterface
         return $this->drive;
     }
 
-    public function getParent(): ?self
+    public function setDrive(Drive $drive): static
+    {
+        $this->drive = $drive;
+
+        return $this;
+    }
+
+    public function getParent(): ?static
     {
         return $this->parent;
     }

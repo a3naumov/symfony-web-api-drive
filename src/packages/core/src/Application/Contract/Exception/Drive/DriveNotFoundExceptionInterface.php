@@ -6,5 +6,4 @@ namespace A3Naumov\WebApiDriveCore\Application\Contract\Exception\Drive;
 
 interface DriveNotFoundExceptionInterface extends \Throwable
 {
-
 }

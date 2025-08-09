@@ -11,7 +11,7 @@ use Symfony\Component\Uid\Exception\InvalidArgumentException;
 use Symfony\Component\Uid\Uuid;
 
 /**
- * @extends ServiceEntityRepository<Resource>
+ * @extends ServiceEntityRepository<resource>
  */
 class ResourceRepository extends ServiceEntityRepository implements ResourceRepositoryInterface
 {

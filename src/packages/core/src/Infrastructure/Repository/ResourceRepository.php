@@ -23,6 +23,6 @@ class ResourceRepository implements ResourceRepositoryInterface
             resource: $this->mapper->fromDomain($resource),
         );
 
-        return $resource;
+        return $this->mapper->toDomain($infrastructureResource);
     }
 }

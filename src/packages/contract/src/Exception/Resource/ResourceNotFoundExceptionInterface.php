@@ -6,5 +6,4 @@ namespace A3Naumov\WebApiDriveContract\Exception\Resource;
 
 interface ResourceNotFoundExceptionInterface extends \Throwable
 {
-
 }

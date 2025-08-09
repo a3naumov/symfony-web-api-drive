@@ -8,5 +8,4 @@ use A3Naumov\WebApiDriveCore\Application\Contract\Exception\Drive\DriveNotFoundE
 
 class DriveNotFoundException extends \Exception implements DriveNotFoundExceptionInterface
 {
-
 }
