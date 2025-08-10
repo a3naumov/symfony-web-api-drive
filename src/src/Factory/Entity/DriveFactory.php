@@ -8,15 +8,23 @@ use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Dto\Drive\DriveDtoInterface
 use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\DriveInterface;
 use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Factory\Entity\DriveFactoryInterface;
 use App\Entity\Drive;
-use Symfony\Component\Uid\Uuid;
+use App\Repository\DriveRepository;
 
 class DriveFactory implements DriveFactoryInterface
 {
-    public function create(DriveDtoInterface $drive): DriveInterface
+    public function __construct(
+        private readonly DriveRepository $driveRepository,
+    ) {
+    }
+
+    public function create(DriveDtoInterface $driveDto): DriveInterface
     {
-        return new Drive(
-            id: $drive->getId() ? Uuid::fromString($drive->getId()) : null,
-            name: $drive->getName(),
-        );
+        $drive = $driveDto->getId() ? $this->driveRepository->findById($driveDto->getId()) : null;
+        $drive ??= new Drive();
+
+        $drive->setDriver($driveDto->getDriver());
+        $drive->setName($driveDto->getName());
+
+        return $drive;
     }
 }

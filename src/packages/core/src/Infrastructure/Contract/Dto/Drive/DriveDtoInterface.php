@@ -8,5 +8,7 @@ interface DriveDtoInterface
 {
     public function getId(): ?string;
 
+    public function getDriver(): string;
+
     public function getName(): string;
 }

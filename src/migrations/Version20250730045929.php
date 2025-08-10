@@ -19,6 +19,7 @@ final class Version20250730045929 extends AbstractMigration
         $this->addSql(<<<SQL
 CREATE TABLE drive (
     id UUID NOT NULL,
+    driver VARCHAR(10) NOT NULL,
     name VARCHAR(255) NOT NULL,
     PRIMARY KEY(id)
 )

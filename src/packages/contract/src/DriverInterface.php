@@ -6,4 +6,5 @@ namespace A3Naumov\WebApiDriveContract;
 
 interface DriverInterface
 {
+    public function getCode(): string;
 }

@@ -10,6 +10,7 @@ class DriveDto implements DriveDtoInterface
 {
     public function __construct(
         private readonly ?string $id,
+        private readonly string $driver,
         private readonly string $name,
     ) {
     }
@@ -17,6 +18,11 @@ class DriveDto implements DriveDtoInterface
     public function getId(): ?string
     {
         return $this->id;
+    }
+
+    public function getDriver(): string
+    {
+        return $this->driver;
     }
 
     public function getName(): string

@@ -9,5 +9,5 @@ use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\DriveInterface;
 
 interface DriveFactoryInterface
 {
-    public function create(DriveDtoInterface $drive): DriveInterface;
+    public function create(DriveDtoInterface $driveDto): DriveInterface;
 }

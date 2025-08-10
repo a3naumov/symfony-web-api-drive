@@ -6,7 +6,7 @@ namespace A3Naumov\WebApiDriveCore\Application\Contract\Dto\Drive;
 
 interface DriveDtoInterface
 {
-    public function getId(): string;
+    public function getId(): ?string;
 
     public function getName(): string;
 }

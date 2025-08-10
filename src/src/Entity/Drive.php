@@ -20,12 +20,27 @@ class Drive implements DriveInterface
     #[ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')]
     private ?Uuid $id;
 
+    #[ORM\Column(length: 10)]
+    private string $driver;
+
     #[ORM\Column(length: 255)]
     private string $name;
 
     public function getId(): ?\Stringable
     {
-        return $this->id;
+        return $this->id ?? null;
+    }
+
+    public function getDriver(): string
+    {
+        return $this->driver;
+    }
+
+    public function setDriver(string $driver): static
+    {
+        $this->driver = $driver;
+
+        return $this;
     }
 
     public function getName(): string

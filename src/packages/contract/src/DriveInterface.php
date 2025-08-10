@@ -10,6 +10,8 @@ interface DriveInterface
 {
     public function getId(): ?string;
 
+    public function getDriver(): DriverInterface;
+
     public function getName(): string;
 
     public function setName(string $name): static;
