@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\DriveInterface;
-use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\ResourceInterface;
+use A3Naumov\CloudDriveCore\Infrastructure\Contract\Entity\DriveInterface;
+use A3Naumov\CloudDriveCore\Infrastructure\Contract\Entity\ResourceInterface;
 use App\Repository\ResourceRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;

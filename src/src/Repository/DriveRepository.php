@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
-use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\DriveInterface;
-use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Repository\DriveRepositoryInterface;
+use A3Naumov\CloudDriveCore\Infrastructure\Contract\Entity\DriveInterface;
+use A3Naumov\CloudDriveCore\Infrastructure\Contract\Repository\DriveRepositoryInterface;
 use App\Entity\Drive;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;

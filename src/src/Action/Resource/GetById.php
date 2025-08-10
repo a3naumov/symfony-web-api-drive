@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Action\Resource;
 
-use A3Naumov\WebApiDriveCore\Application\Contract\UseCase\Resource\GetById\HandlerInterface;
-use A3Naumov\WebApiDriveCore\Application\UseCase\Resource\GetById\Command;
+use A3Naumov\CloudDriveCore\Application\Contract\UseCase\Resource\GetById\HandlerInterface;
+use A3Naumov\CloudDriveCore\Application\UseCase\Resource\GetById\Command;
 use App\Dto\Resource\ResourceDto;
 use App\Mapper\Resource\DtoMapper;
 

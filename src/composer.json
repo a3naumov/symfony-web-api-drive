@@ -1,14 +1,14 @@
 {
     "type": "project",
     "license": "proprietary",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": "^8.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "a3naumov/web-api-drive-core": "^1.0",
-        "a3naumov/web-api-driver-local": "*",
+        "a3naumov/cloud-drive-core": "dev-main",
+        "a3naumov/cloud-drive-driver-filesystem": "dev-main",
         "doctrine/dbal": "^3",
         "doctrine/doctrine-bundle": "^2.15",
         "doctrine/doctrine-migrations-bundle": "^3.4",
@@ -83,7 +83,6 @@
         ],
         "format": [
             "php-cs-fixer fix src",
-            "php-cs-fixer fix packages",
             "php-cs-fixer fix tests"
         ],
         "analyze": [
@@ -101,11 +100,16 @@
     },
     "repositories": [
         {
-            "type": "path",
-            "url": "./packages/*",
-            "options": {
-                "symlink": true
-            }
+            "type": "git",
+            "url": "https://github.com/a3naumov/php-cloud-drive.contract"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/a3naumov/php-cloud-drive.core"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/a3naumov/php-cloud-drive.driver.filesystem"
         }
     ]
 }

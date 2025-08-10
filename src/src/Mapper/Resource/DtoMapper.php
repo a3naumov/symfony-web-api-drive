@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Mapper\Resource;
 
-use A3Naumov\WebApiDriveCore\Application\Contract\Dto\Resource\ResourceDtoInterface;
+use A3Naumov\CloudDriveCore\Application\Contract\Dto\Resource\ResourceDtoInterface;
 use App\Api\Request\Resource\CreateRequest;
 use App\Api\Resource\ResourceResource;
 use App\Dto\Resource\ResourceDto;

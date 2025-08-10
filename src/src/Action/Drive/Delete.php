@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Action\Drive;
 
-use A3Naumov\WebApiDriveCore\Application\Contract\UseCase\Drive\Delete\HandlerInterface;
-use A3Naumov\WebApiDriveCore\Application\UseCase\Drive\Delete\Command;
+use A3Naumov\CloudDriveCore\Application\Contract\UseCase\Drive\Delete\HandlerInterface;
+use A3Naumov\CloudDriveCore\Application\UseCase\Drive\Delete\Command;
 
 class Delete
 {

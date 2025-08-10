@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Action\Drive;
 
-use A3Naumov\WebApiDriveCore\Application\Contract\UseCase\Drive\Create\HandlerInterface;
-use A3Naumov\WebApiDriveCore\Application\UseCase\Drive\Create\Command;
+use A3Naumov\CloudDriveCore\Application\Contract\UseCase\Drive\Create\HandlerInterface;
+use A3Naumov\CloudDriveCore\Application\UseCase\Drive\Create\Command;
 use App\Dto\Drive\DriveDto;
 use App\Mapper\Drive\DtoMapper;
 

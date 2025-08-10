@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Mapper\Drive;
 
-use A3Naumov\WebApiDriveCore\Application\Contract\Dto\Drive\DriveDtoInterface;
+use A3Naumov\CloudDriveCore\Application\Contract\Dto\Drive\DriveDtoInterface;
 use App\Api\Request\Drive\CreateRequest;
 use App\Api\Resource\DriveResource;
 use App\Dto\Drive\DriveDto;

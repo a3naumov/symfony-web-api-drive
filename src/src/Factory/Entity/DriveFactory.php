@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Factory\Entity;
 
-use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Dto\Drive\DriveDtoInterface;
-use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\DriveInterface;
-use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Factory\Entity\DriveFactoryInterface;
+use A3Naumov\CloudDriveCore\Infrastructure\Contract\Dto\Drive\DriveDtoInterface;
+use A3Naumov\CloudDriveCore\Infrastructure\Contract\Entity\DriveInterface;
+use A3Naumov\CloudDriveCore\Infrastructure\Contract\Factory\Entity\DriveFactoryInterface;
 use App\Entity\Drive;
 use App\Repository\DriveRepository;
 

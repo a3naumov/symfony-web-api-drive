@@ -4,23 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9335799e79ece8b4c0b57fddd01b067d",
+    "content-hash": "172deff4ab7983284092546acb616fbc",
     "packages": [
         {
-            "name": "a3naumov/web-api-drive-contract",
-            "version": "1.0.0",
-            "dist": {
-                "type": "path",
-                "url": "./packages/contract",
-                "reference": "8cb3aa80b5bd90ffed120332938d261c8c142b68"
+            "name": "a3naumov/cloud-drive-contract",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/a3naumov/php-cloud-drive.contract",
+                "reference": "0b195bd733d1c7d5bb3c8f7168da5808942a86fe"
             },
             "require": {
                 "php": "^8.3"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "A3Naumov\\WebApiDriveContract\\": "src/"
+                    "A3Naumov\\CloudDriveContract\\": "src/"
                 }
             },
             "license": [
@@ -32,28 +33,26 @@
                     "email": "naumovartem272@gmail.com"
                 }
             ],
-            "description": "Web API Drive Contract",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "description": "PHP Cloud Drive - Contract",
+            "time": "2025-08-10T20:50:35+00:00"
         },
         {
-            "name": "a3naumov/web-api-drive-core",
-            "version": "1.0.0",
-            "dist": {
-                "type": "path",
-                "url": "./packages/core",
-                "reference": "6d2a2cbd124abe8dbb00b66b1f77a536b644f12f"
+            "name": "a3naumov/cloud-drive-core",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/a3naumov/php-cloud-drive.core",
+                "reference": "7121b273e4983f359fa04ec525a2c40641e52123"
             },
             "require": {
-                "a3naumov/web-api-drive-contract": "^1.0",
+                "a3naumov/cloud-drive-contract": "dev-main",
                 "php": "^8.3"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "A3Naumov\\WebApiDriveCore\\": "src/"
+                    "A3Naumov\\CloudDriveCore\\": "src/"
                 }
             },
             "license": [
@@ -65,28 +64,26 @@
                     "email": "naumovartem272@gmail.com"
                 }
             ],
-            "description": "Web API Drive Core",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "description": "PHP Cloud Drive - Core",
+            "time": "2025-08-10T21:06:53+00:00"
         },
         {
-            "name": "a3naumov/web-api-driver-local",
-            "version": "1.0.0",
-            "dist": {
-                "type": "path",
-                "url": "./packages/driver-local",
-                "reference": "c524193fdb899f4492162c52230872601f56b0bb"
+            "name": "a3naumov/cloud-drive-driver-filesystem",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/a3naumov/php-cloud-drive.driver.filesystem",
+                "reference": "600726570a4ed6c103e3a182fa3a09d91789e7a3"
             },
             "require": {
-                "a3naumov/web-api-drive-contract": "^1.0",
+                "a3naumov/cloud-drive-contract": "dev-main",
                 "php": "^8.3"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "A3Naumov\\WebApiDriveDriverLocal\\": "src/"
+                    "A3Naumov\\CloudDriveDriverFilesystem\\": "src/"
                 }
             },
             "license": [
@@ -98,11 +95,8 @@
                     "email": "naumovartem272@gmail.com"
                 }
             ],
-            "description": "Web API Drive Driver Local",
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "description": "PHP Cloud Drive - Driver Filesystem",
+            "time": "2025-08-10T21:14:19+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -8705,8 +8699,11 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": {},
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "a3naumov/cloud-drive-core": 20,
+        "a3naumov/cloud-drive-driver-filesystem": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
