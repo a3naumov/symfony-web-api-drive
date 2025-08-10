@@ -8,5 +8,7 @@ use A3Naumov\WebApiDriveContract\ResourceInterface;
 
 interface ResourceRepositoryInterface
 {
+    public function findById(string $id): ?ResourceInterface;
+
     public function save(ResourceInterface $resource): ResourceInterface;
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Action\Resource\Create;
+use App\Action\Resource\GetById;
 use App\Api\Request\Resource\CreateRequest;
 use App\Api\Request\Resource\ListRequest;
 use App\Api\Resource\ResourceResource;
@@ -12,6 +13,7 @@ use App\Mapper\Resource\DtoMapper;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Attribute\MapQueryString;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(path: '/api/v1/resources', name: 'api_v1_resource_', stateless: true)]
@@ -40,16 +42,20 @@ class ResourceController
     }
 
     #[Route(path: '/{id}', name: 'get', methods: ['GET'])]
-    public function get(): JsonResponse
-    {
-        return new JsonResponse(['resources' => [
-            new ResourceResource(
-                id: '01986cc1-ef93-75f8-8a9f-b119f1185ba4',
-                name: 'Resource 4',
-                type: 'file',
-                parent: null,
-            ),
-        ]]);
+    public function get(
+        string $id,
+        GetById $getById,
+        DtoMapper $mapper,
+    ): JsonResponse {
+        $resourceDto = $getById->handle($id);
+
+        if (!$resourceDto) {
+            throw new NotFoundHttpException(message: 'Resource not found');
+        }
+
+        return new JsonResponse([
+            'resources' => [$mapper->toApiResource($resourceDto)],
+        ]);
     }
 
     #[Route(path: '', name: 'create', methods: ['POST'])]

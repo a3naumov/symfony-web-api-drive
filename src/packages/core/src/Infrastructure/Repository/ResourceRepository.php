@@ -17,6 +17,15 @@ class ResourceRepository implements ResourceRepositoryInterface
     ) {
     }
 
+    public function findById(string $id): ?ResourceInterface
+    {
+        $infrastructureResource = $this->infrastructureRepository->findById($id);
+
+        return $infrastructureResource
+            ? $this->mapper->toDomain($infrastructureResource)
+            : null;
+    }
+
     public function save(ResourceInterface $resource): ResourceInterface
     {
         $infrastructureResource = $this->infrastructureRepository->save(
