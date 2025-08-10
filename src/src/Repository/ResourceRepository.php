@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Repository;
 
 use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\ResourceInterface;
@@ -29,6 +31,28 @@ class ResourceRepository extends ServiceEntityRepository implements ResourceRepo
         }
 
         return $this->find(id: $uuid);
+    }
+
+    public function findByDriveId(string $driveId): array
+    {
+        try {
+            $uuid = Uuid::fromString($driveId);
+        } catch (InvalidArgumentException) {
+            return [];
+        }
+
+        return $this->findBy(['drive' => $uuid, 'parent' => null]);
+    }
+
+    public function findByParentId(string $parentId): array
+    {
+        try {
+            $uuid = Uuid::fromString($parentId);
+        } catch (InvalidArgumentException) {
+            return [];
+        }
+
+        return $this->findBy(['parent' => $uuid]);
     }
 
     public function save(ResourceInterface $resource): ResourceInterface

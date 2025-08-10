@@ -6,9 +6,10 @@ namespace App\Controller;
 
 use App\Action\Resource\Create;
 use App\Action\Resource\GetById;
+use App\Action\Resource\GetList;
 use App\Api\Request\Resource\CreateRequest;
 use App\Api\Request\Resource\ListRequest;
-use App\Api\Resource\ResourceResource;
+use App\Dto\Resource\ResourceDto;
 use App\Mapper\Resource\DtoMapper;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Attribute\MapQueryString;
@@ -24,21 +25,20 @@ class ResourceController
         #[MapQueryString(
             validationFailedStatusCode: JsonResponse::HTTP_UNPROCESSABLE_ENTITY,
         )] ListRequest $request,
+        GetList $getList,
+        DtoMapper $mapper,
     ): JsonResponse {
-        return new JsonResponse(['resources' => [
-            new ResourceResource(
-                id: '01986cc1-ef93-75f8-8a9f-b119f1185ba1',
-                name: 'Resource 1',
-                type: 'directory',
-                parent: null,
+        $resourcesDto = $getList->handle(
+            driveId: $request->drive,
+            parentId: $request->parent,
+        );
+
+        return new JsonResponse([
+            'resources' => array_map(
+                static fn (ResourceDto $resource) => $mapper->toApiResource($resource),
+                $resourcesDto,
             ),
-            new ResourceResource(
-                id: '01986cc1-ef93-75f8-8a9f-b119f1185ba4',
-                name: 'Resource 4',
-                type: 'file',
-                parent: null,
-            ),
-        ]]);
+        ]);
     }
 
     #[Route(path: '/{id}', name: 'get', methods: ['GET'])]

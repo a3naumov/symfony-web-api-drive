@@ -10,5 +10,15 @@ interface ResourceRepositoryInterface
 {
     public function findById(string $id): ?ResourceInterface;
 
+    /**
+     * @return ResourceInterface[]
+     */
+    public function findByDriveId(string $driveId): array;
+
+    /**
+     * @return ResourceInterface[]
+     */
+    public function findByParentId(string $parentId): array;
+
     public function save(ResourceInterface $resource): ResourceInterface;
 }
