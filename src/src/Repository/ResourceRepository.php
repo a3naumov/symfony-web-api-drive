@@ -57,9 +57,14 @@ class ResourceRepository extends ServiceEntityRepository implements ResourceRepo
 
     public function save(ResourceInterface $resource): ResourceInterface
     {
-        $resource = $resource->getId() ? $this->findById($resource->getId()) : $resource;
+        $emResource = $resource->getId() ? $this->findById((string) $resource->getId()) : null;
+        $emResource ??= new Resource();
 
-        $this->getEntityManager()->persist($resource);
+        $emResource->setDrive($resource->getDrive());
+        $emResource->setParent($resource->getParent());
+        $emResource->setName($resource->getName());
+
+        $this->getEntityManager()->persist($emResource);
         $this->getEntityManager()->flush();
 
         return $resource;

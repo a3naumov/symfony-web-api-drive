@@ -33,9 +33,13 @@ class DriveRepository extends ServiceEntityRepository implements DriveRepository
 
     public function save(DriveInterface $drive): DriveInterface
     {
-        $drive = $drive->getId() ? $this->findById($drive->getId()) : $drive;
+        $emDrive = $drive->getId() ? $this->findById((string) $drive->getId()) : null;
+        $emDrive ??= new Drive();
 
-        $this->getEntityManager()->persist($drive);
+        $emDrive->setDriver($drive->getDriver());
+        $emDrive->setName($drive->getName());
+
+        $this->getEntityManager()->persist($emDrive);
         $this->getEntityManager()->flush();
 
         return $drive;

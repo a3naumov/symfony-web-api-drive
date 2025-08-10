@@ -31,10 +31,13 @@ class DtoMapper
         );
     }
 
+    /**
+     * @throws \InvalidArgumentException
+     */
     public function toApiResource(ResourceDto $resourceDto): ResourceResource
     {
         return new ResourceResource(
-            id: $resourceDto->id,
+            id: $resourceDto->id ?? throw new \InvalidArgumentException('Resource ID is required'),
             name: $resourceDto->name,
             parent: $resourceDto->parent,
         );

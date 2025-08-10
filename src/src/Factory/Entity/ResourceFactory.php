@@ -24,7 +24,8 @@ class ResourceFactory implements ResourceFactoryInterface
         $resource = $resourceDto->getId() ? $this->resourceRepository->findById($resourceDto->getId()) : null;
         $resource ??= new Resource();
 
-        $resource->setDrive($this->driveRepository->find($resourceDto->getDriveId()));
+        $resource->setDrive($this->driveRepository->findById($resourceDto->getDriveId())
+            ?? throw new \InvalidArgumentException('Drive not found for ID: '.$resourceDto->getDriveId()));
         $resource->setParent($resourceDto->getParentId() ? $this->resourceRepository->find($resourceDto->getParentId()) : null);
         $resource->setName($resourceDto->getName());
 

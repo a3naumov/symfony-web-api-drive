@@ -12,6 +12,12 @@ class DriveResource implements \JsonSerializable
     ) {
     }
 
+    /**
+     * @return array{
+     *     id: string,
+     *     name: string,
+     * }
+     */
     public function jsonSerialize(): array
     {
         return [

@@ -11,7 +11,7 @@ class CreateRequest
     public function __construct(
         #[Assert\NotBlank]
         #[Assert\Uuid]
-        public readonly ?string $drive,
+        public readonly string $drive,
 
         #[Assert\NotBlank(allowNull: true)]
         #[Assert\Uuid]

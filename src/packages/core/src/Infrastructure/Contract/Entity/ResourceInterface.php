@@ -10,7 +10,13 @@ interface ResourceInterface
 
     public function getDrive(): DriveInterface;
 
-    public function getParent(): ?static;
+    public function setDrive(DriveInterface $drive): self;
+
+    public function getParent(): ?self;
+
+    public function setParent(?self $parent): self;
 
     public function getName(): string;
+
+    public function setName(string $name): self;
 }

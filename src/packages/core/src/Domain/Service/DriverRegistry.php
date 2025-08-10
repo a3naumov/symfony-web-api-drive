@@ -33,7 +33,7 @@ class DriverRegistry
     /**
      * @throws InvalidDriverException
      */
-    public function get(string $code): ?DriverInterface
+    public function get(string $code): DriverInterface
     {
         return $this->drivers[$code] ?? throw new InvalidDriverException();
     }

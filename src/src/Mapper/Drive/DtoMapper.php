@@ -29,10 +29,13 @@ class DtoMapper
         );
     }
 
+    /**
+     * @throws \InvalidArgumentException
+     */
     public function toApiResource(DriveDto $driveDto): DriveResource
     {
         return new DriveResource(
-            id: $driveDto->id,
+            id: $driveDto->id ?? throw new \InvalidArgumentException('Drive ID is required'),
             name: $driveDto->name,
         );
     }

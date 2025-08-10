@@ -24,11 +24,14 @@ class EntityMapper
         );
     }
 
+    /**
+     * @throws \InvalidArgumentException
+     */
     public function toDomain(InfrastructureResourceInterface $resource): ResourceInterface
     {
         return new Resource(
             id: $resource->getId()?->__toString(),
-            driveId: $resource->getDrive()->getId()->__toString(),
+            driveId: $resource->getDrive()->getId()?->__toString() ?? throw new \InvalidArgumentException('Drive ID cannot be null'),
             parentId: $resource->getParent()?->getId()?->__toString(),
             name: $resource->getName(),
         );

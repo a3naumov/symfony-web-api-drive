@@ -9,5 +9,8 @@ use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\ResourceInterface;
 
 interface ResourceFactoryInterface
 {
+    /**
+     * @throws \InvalidArgumentException
+     */
     public function create(ResourceDtoInterface $resourceDto): ResourceInterface;
 }

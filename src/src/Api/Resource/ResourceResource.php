@@ -13,6 +13,13 @@ class ResourceResource implements \JsonSerializable
     ) {
     }
 
+    /**
+     * @return array{
+     *     id: string,
+     *     name: string,
+     *     parent: ?string,
+     * }
+     */
     public function jsonSerialize(): array
     {
         return [

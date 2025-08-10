@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\DriveInterface;
 use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\ResourceInterface;
 use App\Repository\ResourceRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -23,37 +24,37 @@ class Resource implements ResourceInterface
 
     #[ORM\ManyToOne(inversedBy: 'resources')]
     #[ORM\JoinColumn(nullable: false)]
-    private Drive $drive;
+    private DriveInterface $drive;
 
-    #[ORM\OneToOne(targetEntity: self::class, inversedBy: 'parent')]
-    private ?self $parent = null;
+    #[ORM\OneToOne(targetEntity: ResourceInterface::class, inversedBy: 'parent')]
+    private ?ResourceInterface $parent = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    private string $name;
 
     public function getId(): ?Uuid
     {
         return $this->id ?? null;
     }
 
-    public function getDrive(): Drive
+    public function getDrive(): DriveInterface
     {
         return $this->drive;
     }
 
-    public function setDrive(Drive $drive): static
+    public function setDrive(DriveInterface $drive): self
     {
         $this->drive = $drive;
 
         return $this;
     }
 
-    public function getParent(): ?static
+    public function getParent(): ?ResourceInterface
     {
         return $this->parent;
     }
 
-    public function setParent(?self $parent): static
+    public function setParent(?ResourceInterface $parent): self
     {
         $this->parent = $parent;
 
@@ -65,7 +66,7 @@ class Resource implements ResourceInterface
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(string $name): self
     {
         $this->name = $name;
 
