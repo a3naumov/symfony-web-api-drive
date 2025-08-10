@@ -7,6 +7,7 @@ namespace App\Entity;
 use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\ResourceInterface;
 use App\Repository\ResourceRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\IdGenerator\UuidGenerator;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
 
@@ -17,7 +18,7 @@ class Resource implements ResourceInterface
     #[ORM\Id]
     #[ORM\Column(type: UuidType::NAME, unique: true)]
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
-    #[ORM\CustomIdGenerator(class: 'doctrine.uuid_generator')]
+    #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
     private ?Uuid $id;
 
     #[ORM\ManyToOne(inversedBy: 'resources')]
