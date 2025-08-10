@@ -12,6 +12,10 @@ class CreateRequest
         #[Assert\NotBlank]
         #[Assert\Length(max: 255)]
         public readonly string $name,
+
+        #[Assert\NotBlank]
+        #[Assert\Length(max: 10)]
+        public readonly string $driver,
     ) {
     }
 }

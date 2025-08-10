@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Mapper\Resource;
 
 use A3Naumov\WebApiDriveCore\Application\Contract\Dto\Resource\ResourceDtoInterface;
+use App\Api\Request\Resource\CreateRequest;
 use App\Api\Resource\ResourceResource;
 use App\Dto\Resource\ResourceDto;
 
@@ -14,9 +15,19 @@ class DtoMapper
     {
         return new ResourceDto(
             id: $resourceDto->getId(),
-            name: $resourceDto->getName(),
-            type: 'resource',
+            drive: $resourceDto->getDriveId(),
             parent: $resourceDto->getParentId(),
+            name: $resourceDto->getName(),
+        );
+    }
+
+    public function fromCreateRequest(CreateRequest $request): ResourceDto
+    {
+        return new ResourceDto(
+            id: null,
+            drive: $request->drive,
+            parent: $request->parent,
+            name: $request->name,
         );
     }
 
@@ -25,7 +36,6 @@ class DtoMapper
         return new ResourceResource(
             id: $resourceDto->id,
             name: $resourceDto->name,
-            type: $resourceDto->type,
             parent: $resourceDto->parent,
         );
     }

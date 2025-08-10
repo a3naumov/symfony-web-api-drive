@@ -7,4 +7,6 @@ namespace A3Naumov\WebApiDriveCore\Application\Contract\UseCase\Drive\Create;
 interface CommandInterface
 {
     public function getName(): string;
+
+    public function getDriver(): string;
 }

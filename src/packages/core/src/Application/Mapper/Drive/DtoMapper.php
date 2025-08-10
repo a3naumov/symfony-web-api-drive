@@ -15,6 +15,7 @@ class DtoMapper
     {
         return new DriveDto(
             id: $drive->getId(),
+            driver: $drive->getDriver()->getCode(),
             name: $drive->getName(),
         );
     }
@@ -23,6 +24,7 @@ class DtoMapper
     {
         return new DriveDto(
             id: null,
+            driver: $command->getDriver(),
             name: $command->getName(),
         );
     }

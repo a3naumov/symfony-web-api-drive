@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "46996827da6d7719a44b1310ba0d5ad8",
+    "content-hash": "09b73bf3c8b230e30e868b66cc405bc1",
     "packages": [
         {
             "name": "a3naumov/web-api-drive-contract",
@@ -66,6 +66,39 @@
                 }
             ],
             "description": "Web API Drive Core",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
+            "name": "a3naumov/web-api-driver-local",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "./packages/driver-local",
+                "reference": "c524193fdb899f4492162c52230872601f56b0bb"
+            },
+            "require": {
+                "a3naumov/web-api-drive-contract": "^1.0",
+                "php": "^8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "A3Naumov\\WebApiDriveDriverLocal\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Naumov",
+                    "email": "naumovartem272@gmail.com"
+                }
+            ],
+            "description": "Web API Drive Driver Local",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -8557,7 +8590,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.2",
+        "php": "^8.3",
         "ext-ctype": "*",
         "ext-iconv": "*"
     },

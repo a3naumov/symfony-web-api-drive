@@ -12,8 +12,8 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
     _instanceof:
-        A3Naumov\WebApiDriveContract\DriverInterface:
-            tags: [ 'a3naumov.web_api_drive.driver' ]
+        A3Naumov\WebApiDriveContract\Drive\DriverInterface:
+            tags: [ 'a3naumov.web_api_drive.drive.driver' ]
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -23,9 +23,12 @@ services:
     A3Naumov\WebApiDriveCore\:
         resource: '../vendor/a3naumov/web-api-drive-core/src/'
 
+    A3Naumov\WebApiDriveDriverLocal\:
+        resource: '../vendor/a3naumov/web-api-driver-local/src/'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
     A3Naumov\WebApiDriveCore\Domain\Service\DriverRegistry:
         arguments:
-            $drivers: !tagged_iterator a3naumov.web_api_drive.driver
+            $drivers: !tagged_iterator a3naumov.web_api_drive.drive.driver

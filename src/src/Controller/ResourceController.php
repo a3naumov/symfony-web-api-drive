@@ -64,7 +64,7 @@ class ResourceController
         Create $createResource,
         DtoMapper $mapper,
     ): JsonResponse {
-        $resourceDto = $createResource->handle($request);
+        $resourceDto = $createResource->handle($mapper->fromCreateRequest($request));
 
         return new JsonResponse([
             'resources' => [$mapper->toApiResource($resourceDto)],

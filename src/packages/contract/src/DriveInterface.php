@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace A3Naumov\WebApiDriveContract;
 
+use A3Naumov\WebApiDriveContract\Drive\DriverInterface;
 use A3Naumov\WebApiDriveContract\Exception\Resource\ResourceNotFoundExceptionInterface;
 
 interface DriveInterface

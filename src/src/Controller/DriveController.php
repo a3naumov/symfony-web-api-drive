@@ -7,7 +7,7 @@ namespace App\Controller;
 use App\Action\Drive\Create;
 use App\Action\Drive\Delete;
 use App\Api\Request\Drive\CreateRequest;
-use App\Mapper\DriveMapper;
+use App\Mapper\Drive\DtoMapper;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\Routing\Attribute\Route;
@@ -19,10 +19,10 @@ class DriveController
     public function create(
         #[MapRequestPayload] CreateRequest $request,
         Create $createDrive,
-        DriveMapper $mapper,
+        DtoMapper $mapper,
     ): JsonResponse {
         $drive = $createDrive->handle(
-            name: $request->name,
+            driveDto: $mapper->fromCreateRequest($request),
         );
 
         return new JsonResponse(['drives' => [$mapper->toApiResource($drive)]], JsonResponse::HTTP_CREATED);

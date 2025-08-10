@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace A3Naumov\WebApiDriveCore\Domain\Service;
 
-use A3Naumov\WebApiDriveContract\DriverInterface;
+use A3Naumov\WebApiDriveContract\Drive\DriverInterface;
+use A3Naumov\WebApiDriveCore\Domain\Exception\Drive\InvalidDriverException;
 
 class DriverRegistry
 {
@@ -29,8 +30,11 @@ class DriverRegistry
         $this->drivers[$driver->getCode()] = $driver;
     }
 
+    /**
+     * @throws InvalidDriverException
+     */
     public function get(string $code): ?DriverInterface
     {
-        return $this->drivers[$code] ?? null;
+        return $this->drivers[$code] ?? throw new InvalidDriverException();
     }
 }

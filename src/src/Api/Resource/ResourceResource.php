@@ -9,7 +9,6 @@ class ResourceResource implements \JsonSerializable
     public function __construct(
         public readonly string $id,
         public readonly string $name,
-        public readonly string $type,
         public readonly ?string $parent,
     ) {
     }
@@ -19,7 +18,6 @@ class ResourceResource implements \JsonSerializable
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'type' => $this->type,
             'parent' => $this->parent,
         ];
     }

@@ -10,11 +10,17 @@ class Command implements CommandInterface
 {
     public function __construct(
         private readonly string $name,
+        private readonly string $driver,
     ) {
     }
 
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getDriver(): string
+    {
+        return $this->driver;
     }
 }

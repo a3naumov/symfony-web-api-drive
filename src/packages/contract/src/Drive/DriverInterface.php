@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace A3Naumov\WebApiDriveContract;
+namespace A3Naumov\WebApiDriveContract\Drive;
 
 interface DriverInterface
 {
