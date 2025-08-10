@@ -22,12 +22,12 @@ class Resource implements ResourceInterface
     #[ORM\CustomIdGenerator(class: UuidGenerator::class)]
     private ?Uuid $id;
 
-    #[ORM\ManyToOne(inversedBy: 'resources')]
+    #[ORM\ManyToOne(targetEntity: Drive::class, inversedBy: 'resources')]
     #[ORM\JoinColumn(nullable: false)]
-    private DriveInterface $drive;
+    private DriveInterface $drive; /** @phpstan-ignore doctrine.associationType */
 
-    #[ORM\OneToOne(targetEntity: ResourceInterface::class, inversedBy: 'parent')]
-    private ?ResourceInterface $parent = null;
+    #[ORM\OneToOne(targetEntity: Resource::class, inversedBy: 'parent')]
+    private ?ResourceInterface $parent = null; /** @phpstan-ignore doctrine.associationType */
 
     #[ORM\Column(length: 255)]
     private string $name;

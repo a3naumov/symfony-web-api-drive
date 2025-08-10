@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Repository;
 
 use A3Naumov\WebApiDriveCore\Infrastructure\Contract\Entity\DriveInterface;
@@ -42,7 +44,7 @@ class DriveRepository extends ServiceEntityRepository implements DriveRepository
         $this->getEntityManager()->persist($emDrive);
         $this->getEntityManager()->flush();
 
-        return $drive;
+        return $emDrive;
     }
 
     public function delete(DriveInterface $drive): void

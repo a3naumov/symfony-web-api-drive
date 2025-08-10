@@ -67,6 +67,6 @@ class ResourceRepository extends ServiceEntityRepository implements ResourceRepo
         $this->getEntityManager()->persist($emResource);
         $this->getEntityManager()->flush();
 
-        return $resource;
+        return $emResource;
     }
 }
