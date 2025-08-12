@@ -4,6 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    cloud_drive_driver_filesystem_root_directory: '%kernel.project_dir%/storage/a3naumov/cloud-drive/filesystem'
 
 services:
     # default configuration for services in *this* file
@@ -32,3 +33,7 @@ services:
     A3Naumov\CloudDriveCore\Domain\Service\DriverRegistry:
         arguments:
             $drivers: !tagged_iterator a3naumov.cloud_drive.drive.driver
+
+    App\Service\CloudDriveDriverFilesystem\Config:
+        arguments:
+            $rootPath: '%cloud_drive_driver_filesystem_root_directory%'
