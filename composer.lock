@@ -12,7 +12,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/a3naumov/php-cloud-drive.contract",
-                "reference": "0b195bd733d1c7d5bb3c8f7168da5808942a86fe"
+                "reference": "5c916a8a048c453d593e6d6c6373b216bfa8f4a4"
             },
             "require": {
                 "php": "^8.3"
@@ -34,7 +34,7 @@
                 }
             ],
             "description": "PHP Cloud Drive - Contract",
-            "time": "2025-08-10T20:50:35+00:00"
+            "time": "2025-08-12T08:41:27+00:00"
         },
         {
             "name": "a3naumov/cloud-drive-core",
@@ -42,7 +42,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/a3naumov/php-cloud-drive.core",
-                "reference": "7121b273e4983f359fa04ec525a2c40641e52123"
+                "reference": "b209e7acea74d898010df251756b601e6c01b712"
             },
             "require": {
                 "a3naumov/cloud-drive-contract": "dev-main",
@@ -65,7 +65,7 @@
                 }
             ],
             "description": "PHP Cloud Drive - Core",
-            "time": "2025-08-10T21:06:53+00:00"
+            "time": "2025-08-12T08:11:56+00:00"
         },
         {
             "name": "a3naumov/cloud-drive-driver-filesystem",
@@ -73,11 +73,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/a3naumov/php-cloud-drive.driver.filesystem",
-                "reference": "600726570a4ed6c103e3a182fa3a09d91789e7a3"
+                "reference": "c3d9f36662b5f70946d28291e154dae6dd226ba3"
             },
             "require": {
                 "a3naumov/cloud-drive-contract": "dev-main",
-                "php": "^8.3"
+                "php": "^8.3",
+                "symfony/filesystem": "7.3.*"
             },
             "default-branch": true,
             "type": "library",
@@ -96,7 +97,7 @@
                 }
             ],
             "description": "PHP Cloud Drive - Driver Filesystem",
-            "time": "2025-08-10T21:14:19+00:00"
+            "time": "2025-08-12T08:11:38+00:00"
         },
         {
             "name": "doctrine/collections",
